@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro de Notícias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+</head>
+<body>
+    <header class="p-3 bg-primary text-white mb-4 text-center">
+        <h1>Jornal Ontem</h1>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Cadastro de Notícias</h4>
+                <form action="" class="border border-black p-3 rounded" method="get">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">
+                            Qual a imagem você quer que apareça (não é necessário)
+                        </label>
+                        <input
+                            type="text"
+                            name="imgem"
+                            class="form-control"
+                            placeholder="Digite o url da imagem"
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Qual o título da sua notícia?</label>
+                        <input
+                            type="text"
+                            name="titulo"
+                            class="form-control"
+                            placeholder="Digite o seu título"
+                            required
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="descricao" class="form-label">Descrição da notícia</label>
+                        <input
+                            type="text"
+                            name="descricao"
+                            class="form-control"
+                            placeholder="Digite a sua descrição"
+                            required
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h4>Notícias</h4>
+                <div class="border border-black p-3 rounded" id="lista-noticias">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
