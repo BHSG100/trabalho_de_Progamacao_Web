@@ -1,9 +1,9 @@
 <?php
-$localhost = "localhost";
+$localhost = "127.0.0.1";
 $username = "root";
 $password = "root";
 $database = "trabalho";
-$con = mysqli($localhost, $username, $password, $database);
+$con = new mysqli($localhost, $username, $password, $database);
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
