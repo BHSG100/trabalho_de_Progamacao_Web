@@ -1,3 +1,6 @@
+<?php
+require_once './config/database/database.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,14 +17,14 @@
         <div class="row">
             <div class="col-md-6">
                 <h4>Cadastro de Notícias</h4>
-                <form action="" class="border border-black p-3 rounded" method="get">
+                <form action="actions/salvar.php" class="border border-black p-3 rounded" method="POST">
                     <div class="mb-3">
                         <label for="nome" class="form-label">
                             Qual a imagem você quer que apareça (não é necessário)
                         </label>
                         <input
                             type="text"
-                            name="imgem"
+                            name="imagem"
                             class="form-control"
                             placeholder="Digite o url da imagem"
                         >
@@ -52,6 +55,27 @@
             <div class="col-md-6">
                 <h4>Notícias</h4>
                 <div class="border border-black p-3 rounded" id="lista-noticias">
+                    <?php
+                    $sql = "SELECT * FROM noticias ORDER BY data_de_postagem DESC, id DESC";
+                    $result = $con->query($sql);
+
+                    if ($result && $result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<div class="mb-3">';
+                            if (!empty($row['foto'])) {
+                                echo '<img src="' . htmlspecialchars($row['foto']) . '" alt="Imagem da notícia" class="img-fluid mb-2" style="max-height:150px;"><br>';
+                            }
+                            echo '<strong>' . htmlspecialchars($row['nome_da_noticia']) . '</strong><br>';
+                            echo '<span>' . htmlspecialchars($row['descricao']) . '</span><br>';
+                            echo '<small class="text-muted">Postado em: ' . htmlspecialchars($row['data_de_postagem']) . '</small><br>';
+                            echo '<a href="actions/deletar.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm mt-2">Excluir</a>';
+                            echo '<a href="actions/editar.php?id=' . $row['id'] . '" class="btn btn-warning btn-sm mt-2 ms-2">Editar</a>';
+                            echo '</div><hr>';
+                        }
+                    } else {
+                        echo '<p>Nenhuma notícia cadastrada ainda.</p>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
