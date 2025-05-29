@@ -30,15 +30,15 @@ if ($rows->num_rows > 0) {
             </div>
             <div class="modal-body">
                 <div class="mb-3 form-floating">
-                    <input name="titulo" type="text" value="<?= htmlspecialchars($titulo) ?>" class="form-control" id="tituloInput" placeholder="Título" required>
+                    <input name="titulo" type="text" value="<?=$titulo?>" class="form-control" id="tituloInput" placeholder="Título" required>
                     <label for="tituloInput">Título</label>
                 </div>
                 <div class="mb-3 form-floating">
-                    <input name="imagem" type="text" value="<?= htmlspecialchars($imagem) ?>" class="form-control" id="imagemInput" placeholder="URL da Imagem">
+                    <input name="imagem" type="text" value="<?=$imagem ?>" class="form-control" id="imagemInput" placeholder="URL da Imagem">
                     <label for="imagemInput">URL da Imagem</label>
                 </div>
                 <div class="mb-3 form-floating">
-                    <input name="descricao" type="text" value="<?= htmlspecialchars($descricao) ?>" class="form-control" id="descricaoInput" placeholder="Descrição" required>
+                    <input name="descricao" type="text" value="<?=$descricao?>" class="form-control" id="descricaoInput" placeholder="Descrição" required>
                     <label for="descricaoInput">Descrição</label>
                 </div>
             </div>
