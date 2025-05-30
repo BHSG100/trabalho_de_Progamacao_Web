@@ -63,11 +63,11 @@ require_once './config/database/database.php';
                         while ($row = $result->fetch_assoc()) {
                             echo '<div class="mb-3">';
                             if (!empty($row['foto'])) {
-                                echo '<img src="' . htmlspecialchars($row['foto']) . '" alt="Imagem da notícia" class="img-fluid mb-2" style="max-height:150px;"><br>';
+                                echo '<img src="' . $row['foto'] . '" alt="Imagem da notícia" style="align:center" class="start-50 img-fluid mb-2"><br>';
                             }
-                            echo '<strong>' . htmlspecialchars($row['nome_da_noticia']) . '</strong><br>';
-                            echo '<span>' . htmlspecialchars($row['descricao']) . '</span><br>';
-                            echo '<small class="text-muted">Postado em: ' . htmlspecialchars($row['data_de_postagem']) . '</small><br>';
+                            echo '<strong>' . $row['nome_da_noticia'] . '</strong><br>';
+                            echo '<span>' . $row['descricao'] . '</span><br>';
+                            echo '<small class="text-muted">Postado em: ' . $row['data_de_postagem'] . '</small><br>';
                             echo '<a href="actions/deletar.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm mt-2">Excluir</a>';
                             echo '<a href="actions/editar.php?id=' . $row['id'] . '" class="btn btn-warning btn-sm mt-2 ms-2">Editar</a>';
                             echo '</div><hr>';
